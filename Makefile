@@ -6,13 +6,13 @@
 #    By: hthomas <hthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/08 15:05:09 by hthomas           #+#    #+#              #
-#    Updated: 2021/12/11 13:37:20 by hthomas          ###   ########.fr        #
+#    Updated: 2021/12/11 20:03:31 by hthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	hotrace
 
-CC			=	gcc
+CC			=	cc
 CFLAGS		=	-Ofast #-Wall -Werror -Wextra
 LDFLAGS		=	#-g3 -fsanitize=address #-fsanitize=leak
 
