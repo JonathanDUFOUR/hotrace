@@ -3,87 +3,68 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
+#    By: hthomas <hthomas@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/12/10 22:13:16 by jodufour          #+#    #+#              #
-#    Updated: 2021/12/10 22:16:10 by jodufour         ###   ########.fr        #
+#    Created: 2021/03/08 15:05:09 by hthomas           #+#    #+#              #
+#    Updated: 2021/12/11 13:37:20 by hthomas          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-######################################
-#              COMMANDS              #
-######################################
-CC			=	cc -c -o
-LINK		=	cc -o
-MKDIR		=	mkdir -p
-RM			=	rm -rf
-
-######################################
-#             EXECUTABLE             #
-######################################
 NAME		=	hotrace
 
-#######################################
-#             DIRECTORIES             #
-#######################################
-SRC_DIR		=	srcs/
-OBJ_DIR		=	objs/
-INC_DIR		=	
-PRV_DIR		=	private/
+CC			=	gcc
+CFLAGS		=	-Ofast #-Wall -Werror -Wextra
+LDFLAGS		=	#-g3 -fsanitize=address #-fsanitize=leak
 
-#######################################
-#              LIBRARIES              #
-#######################################
+OBJS		=	$(SRCS:.c=.o)
+INCL		=	includes/
+HEADER		=	$(INCL)$(NAME).h					\
+				$(INCL)Linked-list.h
 
-######################################
-#            SOURCE FILES            #
-######################################
-SRC			=	\
-				main.c
+SRCS		=	srcs/main.c							\
+				srcs/utils.c						\
+				srcs/utils2.c
 
-######################################
-#            OBJECT FILES            #
-######################################
-OBJ			=	${SRC:.c=.o}
-OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+# linked_list
+SRCS		+=	srcs/linked_list/ft_lstnew.c		\
+				srcs/linked_list/ft_lstadd_front.c	\
+				srcs/linked_list/ft_lstsize.c		\
+				srcs/linked_list/ft_lstremove_one.c	\
+				srcs/linked_list/ft_lstlast.c		\
+				srcs/linked_list/ft_lstadd_back.c	\
+				srcs/linked_list/ft_lstdelone.c		\
+				srcs/linked_list/ft_lstclear.c		\
+				srcs/linked_list/ft_lstiter.c		\
+				srcs/linked_list/ft_lstmap.c		\
+########################### EXEC
+all:		$(NAME)
 
-DEP			=	${OBJ:.o=.d}
+$(NAME):	$(OBJS)
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS)
 
-#######################################
-#                FLAGS                #
-#######################################
-CFLAGS		=	-Wall -Wextra -Werror
-CFLAGS		+=	-MMD -MP
+########################### OBJECTS
+%.o:		%.c $(HEADER)
+	$(CC) -c $(CFLAGS) $(LDFLAGS) -I $(INCL) -o $@ $<
 
-LDFLAGS		=	
-
-ifeq (${DEBUG}, 1)
-	CFLAGS	+=	-g
-endif
-
-#######################################
-#                RULES                #
-#######################################
-${NAME}:	${OBJ}
-	${LINK} $@ $^ ${LDFLAGS}
-
-all:	${NAME}
-
--include ${DEP}
-
-${OBJ_DIR}%.o:	${SRC_DIR}%.c
-	@${MKDIR} ${@D}
-	${CC} $@ ${CFLAGS} $<
-
+########################### CLEAN
 clean:
-	${RM} ${OBJ_DIR}
+	rm -f $(OBJS)
 
-fclean:
-	${RM} ${OBJ_DIR} ${NAME}
+fclean: clean
+	rm -f $(OBJS)
+	rm -f $(NAME) a.out
 
-re:	fclean all
+re:			fclean all
+.PHONY:		re clean fclean test test_hotrace test_leaks
+# .SILENT:
 
--include coffee.mk
--include norm.mk
+########################### RUN
 
-.PHONY:	all clean fclean re
+run:		$(NAME)
+	./$<
+
+run_time:		$(NAME)
+	time ./$<
+
+run_leaks:	$(NAME)
+	leaks -atExit -- ./$<
