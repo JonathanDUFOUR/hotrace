@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 02:01:15 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/11 03:03:15 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/12/11 19:53:59 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	hr_store_keyval(char const *key, char const *val, t_store *const db)
 
 	if (*key)
 	{
-		idx = (unsigned char)*key % (CHAR_MAX + 1);
+		idx = (unsigned char)*key;
 		if (!db->next[idx])
 		{
 			db->next[idx] = hr_calloc(1, sizeof(t_store));

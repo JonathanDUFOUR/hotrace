@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 03:17:31 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/11 03:22:04 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/12/11 19:53:53 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	hr_search_keyval(char const *key, char const **const val, t_store *const db)
 
 	if (*key)
 	{
-		idx = (unsigned char)*key % (CHAR_MAX + 1);
+		idx = (unsigned char)*key;
 		if (!db->next[idx])
 		{
 			*val = NULL;

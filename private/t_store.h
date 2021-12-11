@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 22:46:14 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/11 03:45:21 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/12/11 19:55:01 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_store	t_store;
 struct s_store
 {
 	char const	*value;
-	t_store		*next[CHAR_MAX + 1];
+	t_store		*next[UCHAR_MAX + 1];
 };
 
 int		hr_search(t_store *const db)
