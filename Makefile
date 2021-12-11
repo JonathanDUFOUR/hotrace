@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 22:13:16 by jodufour          #+#    #+#              #
-#    Updated: 2021/12/10 22:16:10 by jodufour         ###   ########.fr        #
+#    Updated: 2021/12/11 03:38:46 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,21 @@ PRV_DIR		=	private/
 #            SOURCE FILES            #
 ######################################
 SRC			=	\
+				${addprefix util/,	\
+					hr_bzero.c		\
+					hr_calloc.c		\
+					hr_memdel.c		\
+					hr_strcdup.c	\
+					hr_strchr.c		\
+					hr_strcjoin.c	\
+					hr_strlen.c		\
+				}					\
+				hr_clear_data.c		\
+				hr_gnl.c			\
+				hr_search_keyval.c	\
+				hr_search.c			\
+				hr_store_keyval.c	\
+				hr_store.c			\
 				main.c
 
 ######################################
@@ -52,8 +67,9 @@ DEP			=	${OBJ:.o=.d}
 #######################################
 #                FLAGS                #
 #######################################
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra #-Werror
 CFLAGS		+=	-MMD -MP
+CFLAGS		+=	-I${PRV_DIR}
 
 LDFLAGS		=	
 
