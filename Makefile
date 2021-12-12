@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 22:13:16 by jodufour          #+#    #+#              #
-#    Updated: 2021/12/12 17:02:57 by jodufour         ###   ########.fr        #
+#    Updated: 2021/12/12 17:41:05 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,10 @@ NAME		=	hotrace
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR		=	srcs/
+SRC_DIR		=	./
 OBJ_DIR		=	objs/
 INC_DIR		=	
-PRV_DIR		=	private/
+PRV_DIR		=	./
 
 #######################################
 #              LIBRARIES              #
@@ -39,15 +39,13 @@ PRV_DIR		=	private/
 #            SOURCE FILES            #
 ######################################
 SRC			=	\
-				${addprefix util/,	\
-					hr_bzero.c		\
-					hr_gnl.c		\
-					hr_strcdup.c	\
-					hr_strchr.c		\
-					hr_strcjoin.c	\
-					hr_strcmp.c		\
-					hr_strlen.c		\
-				}					\
+				hr_bzero.c			\
+				hr_gnl.c			\
+				hr_strcdup.c		\
+				hr_strchr.c			\
+				hr_strcjoin.c		\
+				hr_strcmp.c			\
+				hr_strlen.c			\
 				hr_keyval_new.c		\
 				hr_keyval_search.c	\
 				hr_keyval_store.c	\
