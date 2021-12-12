@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 22:38:15 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/12 00:49:48 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/12/12 01:00:20 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # endif
 
 # ifndef MAP_SIZE
-#  define MAP_SIZE		65536U
+#  define MAP_SIZE		131072U
 # endif
 
 int		hr_gnl(char const **const line)
