@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 02:01:15 by jodufour          #+#    #+#             */
-/*   Updated: 2021/12/12 00:44:01 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/12/12 02:02:07 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ static int	__update_lst(char const *key, char const *val, t_keyval *lst)
 	return (EXIT_SUCCESS);
 }
 
-int	hr_keyval_store(char const *key, char const *val,
-	t_keyval **const map)
+int	hr_keyval_store(char const *key, char const *val, t_keyval **const map)
 {
 	register unsigned int	hash;
 	register char const		*str = key;
