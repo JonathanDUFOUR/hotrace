@@ -6,67 +6,67 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 22:13:16 by jodufour          #+#    #+#              #
-#    Updated: 2022/05/19 21:37:03 by jodufour         ###   ########.fr        #
+#    Updated: 2022/05/20 05:46:25 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CC			=	clang
-LINK		=	clang
-MKDIR		=	mkdir -p
-RM			=	rm -rf
+CC		=	clang
+LINK	=	clang
+MKDIR	=	mkdir -p
+RM		=	rm -rf
 
 ######################################
 #             EXECUTABLE             #
 ######################################
-NAME		=	hotrace.out
+NAME	=	hotrace.out
 
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR		=	./
-OBJ_DIR		=	objs/
-INC_DIR		=	
-PRV_DIR		=	./
+SRC_DIR	=	./
+OBJ_DIR	=	objs/
+INC_DIR	=	
+PRV_DIR	=	./
 
 ######################################
 #            SOURCE FILES            #
 ######################################
-SRC			=	\
-				hr_bzero.c			\
-				hr_gnl.c			\
-				hr_strcdup.c		\
-				hr_strchr.c			\
-				hr_strcjoin.c		\
-				hr_strcmp.c			\
-				hr_strlen.c			\
-				hr_keyval_new.c		\
-				hr_keyval_search.c	\
-				hr_keyval_store.c	\
-				hr_map_clear.c		\
-				hr_search.c			\
-				hr_store.c			\
-				main.c
+SRC		=	\
+			hr_bzero.c			\
+			hr_gnl.c			\
+			hr_strcdup.c		\
+			hr_strchr.c			\
+			hr_strcjoin.c		\
+			hr_strcmp.c			\
+			hr_strlen.c			\
+			hr_keyval_new.c		\
+			hr_keyval_search.c	\
+			hr_keyval_store.c	\
+			hr_map_clear.c		\
+			hr_search.c			\
+			hr_store.c			\
+			main.c
 
 ######################################
 #            OBJECT FILES            #
 ######################################
-OBJ			=	${SRC:.c=.o}
-OBJ			:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ		=	${SRC:.c=.o}
+OBJ		:=	${addprefix ${OBJ_DIR}, ${OBJ}}
 
-DEP			=	${OBJ:.o=.d}
+DEP		=	${OBJ:.o=.d}
 
 #######################################
 #                FLAGS                #
 #######################################
-CFLAGS		=	-c
-CFLAGS		+=	-Wall -Wextra -Werror
-CFLAGS		+=	-MMD -MP
-CFLAGS		+=	-I${PRV_DIR}
+CFLAGS	=	-c
+CFLAGS	+=	-Wall -Wextra -Werror
+CFLAGS	+=	-MMD -MP
+CFLAGS	+=	-I${PRV_DIR}
 
-LDFLAGS		=	
+LDFLAGS	=	
 
 ifeq (${DEBUG}, 1)
 	CFLAGS	+=	-g
