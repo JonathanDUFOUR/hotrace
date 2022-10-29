@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/10 22:13:16 by jodufour          #+#    #+#              #
-#    Updated: 2022/05/20 05:46:25 by jodufour         ###   ########.fr        #
+#    Updated: 2022/10/29 08:34:52 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,9 @@ NAME	=	hotrace.out
 #######################################
 #             DIRECTORIES             #
 #######################################
-SRC_DIR	=	./
-OBJ_DIR	=	objs/
-INC_DIR	=	
-PRV_DIR	=	./
+SRC_DIR	=	srcs
+OBJ_DIR	=	objs
+PRV_DIR	=	private
 
 ######################################
 #            SOURCE FILES            #
@@ -54,7 +53,7 @@ SRC		=	\
 #            OBJECT FILES            #
 ######################################
 OBJ		=	${SRC:.c=.o}
-OBJ		:=	${addprefix ${OBJ_DIR}, ${OBJ}}
+OBJ		:=	${addprefix ${OBJ_DIR}/, ${OBJ}}
 
 DEP		=	${OBJ:.o=.d}
 
@@ -84,7 +83,7 @@ all: ${NAME}
 
 -include ${DEP}
 
-${OBJ_DIR}%.o: ${SRC_DIR}%.c
+${OBJ_DIR}/%.o: ${SRC_DIR}/%.c
 	@${MKDIR} ${@D}
 	${CC} $< ${CFLAGS} ${OUTPUT_OPTION}
 
